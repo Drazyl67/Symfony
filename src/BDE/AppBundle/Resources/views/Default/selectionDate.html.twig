@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Accueil</title>
+</head>
+
+<body>
+    <header class="row">
+       <a href="{{ path('bde_app_homepage')}}"><img src="{{ asset('image/Logo.png') }}" alt="Logo du BDE" class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></a>
+        <h1 class="col-xs-6 col-sm-6 col-md-6 col-lg-6">BDE Strasbourg</h1>
+
+        <div class="bouton col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div>
+            {% if app.user %}
+            <p>Bienvenue {{ app.user.username }} </p>
+                               <div id="Connexion"><a href="{{ path('fos_user_security_logout')}}"><button class="btn btn-primary" id="login">Déconnexion</button></a></div>
+            {% else %}
+                   <div id="Connexion"><a href="{{ path('fos_user_security_login')}}"><button class="btn btn-primary" id="login">Connexion</button></a></div>
+            {% endif %}
+
+                <div id="Contact"><a href="mailto:victor.lutz@viacesi.fr"><button id="rose">Contact</button></a></div> 
+            </div>
+                <div id="Inscription"><a href="{{ path('fos_user_registration_register')}}"><button id="register">Inscription</button></a></div>
+        </div>
+
+        <nav class="navigation col-xs-6 col-sm-6 col-md-6 col-lg-6"><ul></ul>
+            <a class="navlink" href="{{ path('bde_app_evenement')}}"><button id="Evenement"> <h4> Evènement </h4></button></a>
+            <a class="navlink" href="{{ path('bde_app_propositions')}}"><button id="idee"><h4> Soumettre une idée</h4></button></a>
+            <a class="navlink" href="{{ path('bde_app_boutique')}}"><button id="idee"><h4> Boutique </h4></button></a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="navlink" href="{{ path('bde_app_administrationPage')}}"><button id="market" style="color: red;"><h4> Administration </h4></button></a>
+        {% endif %}
+        </nav>
+        {% if is_granted('ROLE_USER') %}
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+             {{ Panier | length }} article(s) dans votre <a href="{{ path('bde_app_panier')}}">panier</a>
+        </div>
+        {% endif %}
+    </header>
+    <div class="push"></div>
+
+    <h3 style="margin-left: 35vw; margin-top: 5vh;">Proposer une date</h3>
+    <div style="width: 30vw; margin: auto; margin-top: 5vh;">
+        {{ form(form) }}         
+    </div>
+
+
+
+    <footer class="footer navbar-fixed-bottom">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Tous droits réservé - BDE Strasbourg &copy 2017</div>
+        <a href="link" class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><p id="Mentions">Mentions légales</p></a>
+    </footer>
+</body>
+</html>
+
+
+

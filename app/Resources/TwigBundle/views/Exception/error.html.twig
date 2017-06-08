@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="{{ _charset }}" />
+        <title>An Error Occurred: {{ status_text }}</title>
+    </head>
+    <body>
+        <h1>OMG IT'S BROKEN !!!</h1>
+        <h2>Le serveur à retourné "{{ status_code }} {{ status_text }}".</h2>
+
+        <div>
+            Celà est probablement dû au fait que vous êtes déjà inscrit ou que vous avez déjà proposé une date !<br>
+            Si ce n'est pas le cas, veuillez contacter le créateur: <a href="mailto:victor.lutz@viacesi.fr">cliquez ici</a><br>
+            Celà lui évitera une mauvaise note (JF !).
+        </div>
+    </body>
+</html>

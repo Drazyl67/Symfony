@@ -1,0 +1,4 @@
+BDE\AppBundle\Entity\Picture:
+    image:
+        mapping:           activity_mapping
+        filename_property: file_name

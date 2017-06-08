@@ -1,0 +1,83 @@
+bde_app_homepage:
+    path:     /
+    defaults: { _controller: BDEAppBundle:Default:index }
+
+bde_app_boutique:
+    path:     /boutique
+    defaults: { _controller: BDEAppBundle:Default:boutique }
+
+bde_app_article:
+    path:     /boutique/{id}
+    defaults:
+      _controller: BDEAppBundle:Default:article
+    requirements:
+      id: \d+
+
+bde_app_propositions:
+    path:     /propositions
+    defaults: { _controller: BDEAppBundle:Default:propositions }
+
+bde_app_panier:
+    path:     /panier
+    defaults: { _controller: BDEAppBundle:Default:panier }
+
+bde_app_evenement:
+    path:     /evenement
+    defaults: { _controller: BDEAppBundle:Default:evenement }
+
+bde_app_detailEvenement:
+    path:     /evenement/{id}
+    defaults:
+      _controller: BDEAppBundle:Default:detailEvenement
+    requirements:
+      id: \d*
+
+bde_app_delete_panier:
+    path:     /panier/delete/{id}
+    defaults: { _controller: BDEAppBundle:Default:deleteArticle }
+
+bde_app_add_panier:
+    path:     /panier/add/{id}
+    defaults: { _controller: BDEAppBundle:Default:addArticle }
+
+bde_app_add_like:
+    path:     /propositions/like/{idEvenement}
+    defaults: { _controller: BDEAppBundle:Default:addLike }
+
+bde_app_inscription:
+    path:     /register
+
+bde_app_add_date:
+    path:     /propositions/date/{idEvenement}
+    defaults: { _controller: BDEAppBundle:Default:addDate }
+
+bde_app_inscription_event:
+    path:     /evenement/{id}/register
+    defaults:
+      _controller: BDEAppBundle:Default:eventRegister
+    requirements:
+      id: \d*
+
+bde_app_upload:
+    path:      /evenement/{id}/upload
+    defaults:
+      _controller: BDEAppBundle:Default:upload
+    requirements:
+      id: \d*
+
+bde_app_administration:
+    path:      /evenement/{id}/admin
+    defaults:
+      _controller: BDEAppBundle:Default:admin
+    requirements:
+      id: \d*
+
+bde_app_administrationPage:
+    path:       /admin
+    defaults:
+      _controller: BDEAppBundle:Default:adminPage
+
+bde_app_see_date:
+    path:       /propositions/{idEvenement}/admin
+    defaults:
+      _controller: BDEAppBundle:Default:dateAdmin
